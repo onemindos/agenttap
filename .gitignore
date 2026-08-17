@@ -1,0 +1,20 @@
+# Compiled binaries (built by `make` / `make build` / `make web`)
+/agenttap
+/agentweb
+
+# Test & coverage artifacts
+*.test
+*.out
+coverage.*
+
+# NDJSON recordings (produced by `agenttap -view json`)
+*.ndjson
+
+# Editor / OS noise
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Local working docs / handoff notes — kept private, not part of the repo
+/tmp/

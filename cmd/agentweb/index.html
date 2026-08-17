@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>agenttap · The Stream</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg-base"></div><div class="bg-grid"></div><div class="bg-floor"></div>
+<div class="bg-noise"></div><div class="scanlines"></div><div class="sweep"></div>
+
+<div class="app">
+  <header class="hud-header panel">
+    <div class="brand">
+      <span class="mark">
+        <svg viewBox="0 0 40 40" fill="none" stroke="#3ce7ff" stroke-width="2">
+          <circle cx="20" cy="20" r="3.4" fill="#3ce7ff" stroke="none"/>
+          <path d="M20 16.5 V5" stroke-width="2.4"/>
+          <path d="M11.5 28.5a12 12 0 0 1 17 0" opacity=".85"/>
+          <path d="M7 33a18 18 0 0 1 26 0" opacity=".5"/>
+        </svg>
+      </span>
+      <div>
+        <div class="name"><b>agent</b>tap</div>
+        <div class="sub">agent-protocol visualizer · the stream</div>
+      </div>
+    </div>
+    <div class="hdr-chips">
+      <span class="chip"><span class="k">source</span> <span id="src">connecting…</span></span>
+      <span class="chip subj">agents.prompt.&gt;</span>
+      <span class="chip subj hb">agents.hb.&gt;</span>
+      <span class="chip"><span class="k">schema</span> <span id="schema">–</span></span>
+    </div>
+    <div class="hdr-right">
+      <span class="clock" id="clock">--:--:--.---</span>
+      <span class="pill-pause" id="statepill"><span class="bars"><i></i><i></i></span> <span id="statetext">Paused</span></span>
+    </div>
+  </header>
+
+  <main class="stage">
+    <aside class="col roster panel">
+      <div class="col-head"><span class="lbl t">Roster</span><span class="c" id="roster-count"></span></div>
+      <div class="col-body" id="roster-body"><div class="empty">waiting for agents…</div></div>
+    </aside>
+    <section class="col convo panel">
+      <div class="col-head"><span class="lbl t">Conversation</span><span class="c" id="convo-count"></span></div>
+      <div class="col-body" id="convo-body"><div class="empty">waiting for a prompt…</div></div>
+    </section>
+    <section class="col wire panel">
+      <div class="col-head"><span class="lbl t">The Wire</span>
+        <span class="legend"><span><i class="cy"></i>prompt</span><span><i class="or"></i>reply</span><span><i class="mg"></i>heartbeat</span></span>
+      </div>
+      <div class="col-body" id="wire-body"></div>
+    </section>
+  </main>
+
+  <footer class="transport panel">
+    <div class="tctrls">
+      <div><button class="tbtn" id="stepback" title="step to previous event"><svg viewBox="0 0 24 24"><path d="M7 5v14H5V5h2zm12 0v14l-10-7 10-7z"/></svg></button></div>
+      <div>
+        <button class="tbtn play" id="play" title="play / pause"><svg id="playicon" viewBox="0 0 24 24"><path d="M8 5v14l11-7L8 5z"/></svg></button>
+        <div class="tstate" id="tstate">paused</div>
+      </div>
+      <div><button class="tbtn" id="stepfwd" title="step to next event"><svg viewBox="0 0 24 24"><path d="M17 5v14h2V5h-2zM5 5v14l10-7L5 5z"/></svg></button></div>
+    </div>
+    <div class="timeline">
+      <div class="track" id="track">
+        <div class="fill" id="fill"></div>
+        <div id="ticks"></div>
+        <span class="playhead" id="playhead"></span>
+      </div>
+      <div class="tscale"><span>00:00</span><span class="ev-lbl" id="focuslbl"></span><span id="total">00:00.0</span></div>
+    </div>
+    <div class="tright">
+      <div class="speed" id="speed">
+        <span data-s="0.5">0.5&#215;</span><span data-s="1" class="on">1.0&#215;</span><span data-s="2">2&#215;</span><span data-s="4">4&#215;</span>
+      </div>
+      <div class="tcount"><b id="elapsed">00:00.0</b><span class="sep">/</span><span id="total2">00:00.0</span></div>
+    </div>
+  </footer>
+</div>
+
+<script src="app.js" defer></script>
+</body>
+</html>
