@@ -18,3 +18,4 @@ coverage.*
 
 # Local working docs / handoff notes — kept private, not part of the repo
 /tmp/
+.github/
